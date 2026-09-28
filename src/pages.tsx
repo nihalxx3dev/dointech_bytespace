@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight, BadgeCheck, Check, ChevronRight, CirclePlay, Clock3, Filter, Heart, LockKeyhole, Mail, MoreHorizontal, Play, Search, Share2, ShieldCheck, Signal, Sparkles, Star, Users, Video, WandSparkles } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Check, ChevronRight, CirclePlay, Clock3, Filter, Heart, MoreHorizontal, Play, Search, Share2, ShieldCheck, Signal, Star, Users, Video, WandSparkles } from 'lucide-react'
 import { categories, courses, modules, reviews } from './data'
-import { Avatar, Breadcrumbs, Button, CategoryCard, CourseCard, CourseCover, CourseNav, CourseStats, FilterSelect, HappyStudentsCard, LessonRow, PageShell, ProgressCard, QuoteMark, RatingStars, ReadMore, SearchBox, SectionHeading } from './components'
+import { Avatar, Breadcrumbs, Button, CategoryCard, CourseCard, CourseCover, CourseNav, CourseStats, FilterSelect, HappyStudentsCard, LessonRow, PageShell, ProgressCard, RatingStars, ReadMore, SearchBox, SectionHeading } from './components'
 
 const course = courses[0]
 const courseTitle = 'Build Digital Asset: A Comprehensive Guide'
