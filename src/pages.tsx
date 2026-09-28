@@ -13,10 +13,18 @@ export function HomePage() {
       <div className="hero-grid" />
       <span className="hero-shape hero-ribbon"/><span className="hero-shape hero-cone"/><span className="hero-shape hero-loop"/><span className="hero-shape hero-squiggle"/>
       <div className="wrap home-hero-content"><h1>Get Access to Hundreds<br className="desktop-break"/> Courses Available</h1><p>Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.</p><SearchBox /></div>
-      <div className="hero-orbit"/><div className="hero-stage"><div className="hero-person"><span className="person-hair"/><span className="person-head"/><span className="person-neck"/><span className="person-body"/><span className="person-laptop"/><span className="person-headphone"/></div></div>
+      <div className="hero-orbit"/><div className="hero-stage"><img src="/images/hero_main1.png" alt="Hero" className="hero-person-img"/></div>
       <div className="hero-course-float glass-card"><b>UI/UX Design</b><span>200 Courses <i>•</i> 1000+ Students</span></div><ProgressCard/><HappyStudentsCard/>
     </section>
-    <section className="partner-strip wrap"><span>Trusted by creative teams at</span><div className="partner-logos"><b>↗ figma</b><b>◩ Webflow</b><b>◉ notion</b><b>✦ Shopify</b><b>◒ miro</b></div></section>
+    <section className="partner-strip wrap">
+  <div className="partner-logos">
+    <img src="/images/logoipsum_1.png" alt="Logoipsum 1" />
+    <img src="/images/logoipsum_2.png" alt="Logoipsum 2" />
+    <img src="/images/logoipsum_3.png" alt="Logoipsum 3" />
+    <img src="/images/logoipsum_4.png" alt="Logoipsum 4" />
+    <img src="/images/logoipsum_5.png" alt="Logoipsum 5" />
+  </div>
+</section>
     <section className="section wrap home-categories"><SectionHeading centered title="Discover Your Passion, Build Your Skills" description="At ByteSpace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life."/><div className="category-grid">{categories.map(item => <CategoryCard category={item} key={item.name}/>)}</div><div className="center-action"><Button variant="outline">Explore all categories <ArrowRight size={17}/></Button></div></section>
     <section className="section courses-section"><div className="wrap"><div className="section-row"><SectionHeading eyebrow="LEARN SOMETHING NEW" title="Popular Courses" description="Learn from experienced creators and grow your skills, one course at a time."/><Link className="text-link" to="/search">Browse all courses <ArrowRight size={17}/></Link></div><div className="course-grid">{courses.slice(0,3).map(item => <CourseCard course={item} key={item.title}/>)}</div><div className="course-grid course-grid-extra">{courses.slice(3,6).map(item => <CourseCard course={item} key={item.title}/>)}</div></div></section>
     <section className="creator-promo wrap"><div className="creator-promo-art"><span className="promo-orb"/><div className="promo-note"><Sparkles/><b>Make something<br/>people love.</b></div><div className="promo-tag">Your next chapter starts here <ArrowUpRight size={16}/></div></div><div className="creator-promo-copy"><span className="eyebrow">FOR THE CURIOUS</span><h2>Learn from creators who love what they do.</h2><p>Explore practical, thoughtfully crafted courses from people working at the edge of their fields. Build useful skills at your own pace.</p><div className="promo-checks"><span><Check/>Learn by doing</span><span><Check/>Go at your own pace</span><span><Check/>Keep lifetime access</span></div><Link to="/search"><Button>Explore the library <ArrowRight size={17}/></Button></Link></div></section>
@@ -27,7 +35,64 @@ export function HomePage() {
 
 function AuthPage({ mode }: { mode: 'register' | 'login' }) {
   const isRegister = mode === 'register'
-  return <PageShell><section className="auth-page wrap"><div className="auth-pitch"><span className="eyebrow">BYTESPACE · YOUR NEXT CHAPTER</span><h1>{isRegister ? 'Sign up and come in' : 'Sign in with ease'}</h1><p>{isRegister ? 'The registration process is straightforward, uncomplicated, and efficient, allowing you to get started quickly and at no cost.' : 'Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.'}</p><div className="auth-art"><span className="auth-art-orbit"/><span className="auth-art-disc"/><span className="auth-art-star">✳</span><div className="auth-art-card"><span>YOUR CREATIVE SPACE</span><b>Learn.<br/>Make.<br/>Grow.</b><i>ByteSpace / 001</i></div><div className="auth-art-chip"><Sparkles size={19}/></div></div></div><form className="auth-card" onSubmit={e=>e.preventDefault()}><span className="eyebrow">{isRegister ? 'CREATE AN ACCOUNT' : 'WELCOME BACK'}</span><h2>{isRegister ? 'Welcome to ByteSpace' : 'Welcome Back'}</h2><p>{isRegister ? 'Create your account and start learning today.' : 'Sign in to pick up right where you left off.'}</p>{isRegister && <label className="field"><span>Full Name</span><input autoComplete="name" placeholder="Jamie Davis" /></label>}<label className="field"><span>Email</span><span className="field-input"><Mail size={17}/><input type="email" autoComplete="email" placeholder="designer@example.com"/></span></label><label className="field"><span>Password</span><span className="field-input"><LockKeyhole size={17}/><input type="password" autoComplete={isRegister?'new-password':'current-password'} placeholder="Enter your password"/></span></label>{!isRegister && <div className="forgot-row"><label><input type="checkbox"/> Remember me</label><a href="#forgot">Forgot password?</a></div>}{isRegister && <label className="terms-check"><input type="checkbox"/> <span>I agree to ByteSpace's <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>.</span></label>}<Button type="submit" className="auth-submit">{isRegister ? 'Continue' : 'Sign In'} <ArrowRight size={17}/></Button>{!isRegister && <div className="auth-divider"><span>or</span></div>}<div className="auth-switch">{isRegister ? 'Already have an account?' : 'New user?'} <Link to={isRegister?'/login':'/register'}>{isRegister?'Login':'Create an account'}</Link></div></form></section></PageShell>
+  return <PageShell darkHeader noFooter><div className="auth-wrapper"><div className="hero-grid" /><section className="auth-page wrap"><div className="auth-pitch"><span className="eyebrow eyebrow-light">BYTESPACE · YOUR NEXT CHAPTER</span><h1>{isRegister ? 'Sign up and come in' : 'Sign in with ease'}</h1><p>{isRegister ? 'The registration process is straightforward, uncomplicated, and efficient, allowing you to get started quickly and at no cost.' : 'Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.'}</p><div className="auth-art"><img src="/images/auth.png" alt="Auth illustration" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/></div></div><form className="auth-card" onSubmit={e=>e.preventDefault()}>
+  <span className="eyebrow">{isRegister ? 'CREATE AN ACCOUNT' : 'Sign In'}</span>
+  <h2>{isRegister ? 'Welcome to ByteSpace' : 'Welcome Back'}</h2>
+  {isRegister && <p>Create your account and start learning today.</p>}
+  
+  {isRegister && (
+    <label className="field">
+      <span>Full Name</span>
+      <input autoComplete="name" placeholder="Jamie Davis" />
+    </label>
+  )}
+  
+  <label className="field">
+    <span>Email</span>
+    <input type="email" autoComplete="email" placeholder="designer@example.com"/>
+  </label>
+  
+  <label className="field">
+    <span>Password</span>
+    <input type="password" autoComplete={isRegister ? 'new-password' : 'current-password'} placeholder="••••••••"/>
+  </label>
+  
+  {isRegister ? (
+    <label className="terms-check">
+      <input type="checkbox"/> <span>I agree to ByteSpace's <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>.</span>
+    </label>
+  ) : (
+    <div className="forgot-row">
+      <label><input type="checkbox"/> Remember me</label>
+      <a href="#forgot">Forgot password?</a>
+    </div>
+  )}
+
+  <div className="auth-btn-row">
+    <Button type="submit" className="auth-submit-compact">
+      {isRegister ? 'Continue' : 'Sign In'}
+    </Button>
+  </div>
+
+  <div className="auth-divider"><span>or</span></div>
+
+  <div className="social-login-row">
+    <button type="button" className="social-btn" aria-label="Sign in with Facebook">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </button>
+    <button type="button" className="social-btn" aria-label="Sign in with Google">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div className="auth-switch">
+    {isRegister ? 'Already have an account?' : 'New user?'} <Link to={isRegister ? '/login' : '/register'}>{isRegister ? 'Login' : 'Create an account'}</Link>
+  </div>
+</form></section></div></PageShell>
 }
 export function RegisterPage(){ return <AuthPage mode="register"/> }
 export function LoginPage(){ return <AuthPage mode="login"/> }
