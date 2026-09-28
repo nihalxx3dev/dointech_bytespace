@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { ArrowDown, ArrowLeft, ArrowRight, Bookmark, Check, ChevronDown, Clock3, GraduationCap, Menu, Search, Signal, Star, Users, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, Bookmark, Check, ChevronDown, Clock3, GraduationCap, Menu, Search, Signal, Star, Users, X } from 'lucide-react'
 import type { Course } from './data'
 import { Briefcase, Camera, Code2, Laptop, Megaphone, PenTool } from 'lucide-react'
 
