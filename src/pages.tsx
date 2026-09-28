@@ -42,45 +42,47 @@ export function HomePage() {
             </Link>
         </div>
         </section>
-        <section className="section testimonial-section wrap">
+        <section className="section testimonial-section">
+  <div className="wrap">
     <div className="section-row">
-        <div className="section-heading">
+      <div className="section-heading">
         <h2>Discover What Our<br />Community Is Saying</h2>
-        </div>
-        <p className="testimonial-intro">
+      </div>
+      <p className="testimonial-intro">
         At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
-        </p>
+      </p>
     </div>
     <div className="testimonial-grid">
-        {[
+      {[
         {
-            name: 'Sarah M.',
-            role: 'Enthusiastic Learner',
-            image: '/images/comm1.png',
-            body: '"ByteSpace has transformed my approach to learning. The diverse range of courses and the quality of content provided by creators have exceeded my expectations. The platform truly fosters a sense of community and lifelong learning."'
+          name: 'Sarah M.',
+          role: 'Enthusiastic Learner',
+          image: '/images/comm1.png',
+          body: '"ByteSpace has transformed my approach to learning. The diverse range of courses and the quality of content provided by creators have exceeded my expectations. The platform truly fosters a sense of community and lifelong learning."'
         },
         {
-            name: 'James L.',
-            role: 'Lifelong Learner',
-            image: '/images/comm2.png',
-            body: '"I\'ve tried several online learning platforms, and ByteSpace stands out for its vibrant community and the variety of courses available. The easy navigation and engaging content make it a go-to platform for continuous skill development."'
+          name: 'James L.',
+          role: 'Lifelong Learner',
+          image: '/images/comm2.png',
+          body: '"I\'ve tried several online learning platforms, and ByteSpace stands out for its vibrant community and the variety of courses available. The easy navigation and engaging content make it a go-to platform for continuous skill development."'
         },
         {
-            name: 'Alex B.',
-            role: 'Inspired Creator',
-            image: '/images/comm3.png',
-            body: '"As a creator, ByteSpace has been a game-changer for me. The Course Editor is user-friendly, and the support from the community is incredible. It\'s fulfilling to see my courses making a positive impact on learners globally."'
+          name: 'Alex B.',
+          role: 'Inspired Creator',
+          image: '/images/comm3.png',
+          body: '"As a creator, ByteSpace has been a game-changer for me. The Course Editor is user-friendly, and the support from the community is incredible. It\'s fulfilling to see my courses making a positive impact on learners globally."'
         }
-        ].map((item) => (
+      ].map((item) => (
         <article className="testimonial-card" key={item.name}>
-            <img className="testimonial-avatar" src={item.image} alt={item.name} />
-            <h3>{item.name}</h3>
-            <span className="testimonial-role">{item.role}</span>
-            <p>{item.body}</p>
+          <img className="testimonial-avatar" src={item.image} alt={item.name} />
+          <h3>{item.name}</h3>
+          <span className="testimonial-role">{item.role}</span>
+          <p>{item.body}</p>
         </article>
-        ))}
+      ))}
     </div>
-    </section>
+  </div>
+</section>
   </PageShell>
 }
 
