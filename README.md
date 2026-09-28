@@ -1,32 +1,31 @@
-# React + TypeScript + Vite
+# ByteSpace
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Responsive React implementation of the ByteSpace course-discovery and creator platform design.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Production build
+
+```sh
+npm run build
+npm run preview
+```
+
+## Routes
+
+- `/` — Home
+- `/register` — Register
+- `/login` — Login
+- `/search` — Course search and discovery
+- `/course` — Course details
+- `/lessons` — Course lessons
+- `/reviews` — Course reviews
+- `/creator` — Creator profile
+- Any other path — 404 page
+
+The design file only provides desktop artboards. Smaller-screen behavior is an implementation adaptation, not a Figma-specified breakpoint system.
