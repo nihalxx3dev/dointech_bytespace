@@ -2,6 +2,16 @@ import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, Bookmark, Check, ChevronDown, Clock3, GraduationCap, Menu, Search, Signal, Star, Users, X } from 'lucide-react'
 import type { Course } from './data'
+import { Briefcase, Camera, Code2, Laptop, Megaphone, PenTool } from 'lucide-react'
+
+const categoryIcons: Record<string, React.ReactNode> = {
+  'Design': <PenTool size={22} />,
+  'Development': <Code2 size={22} />,
+  'IT & Software': <Laptop size={22} />,
+  'Business': <Briefcase size={22} />,
+  'Marketing': <Megaphone size={22} />,
+  'Photography': <Camera size={22} />
+}
 
 export function Button({ children, variant = 'lime', className = '', ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'lime' | 'blue' | 'outline' | 'ghost' }) {
   return <button className={`button button-${variant} ${className}`} {...props}>{children}</button>
@@ -50,12 +60,57 @@ export function CourseCover({ course, large = false }: { course: Course; large?:
   return <div className={`course-cover cover-${course.theme} ${large ? 'course-cover-large' : ''}`} aria-label={`${course.title} cover art`} role="img"><div className="cover-orbit orbit-one"/><div className="cover-orbit orbit-two"/><span className="cover-label">{course.tag}</span><strong>{course.title}</strong><span className="cover-spark">✳</span></div>
 }
 
-export function CourseCard({ course, compact = false }: { course: Course; compact?: boolean }) {
-  return <article className={`course-card ${compact ? 'course-card-compact' : ''}`}><Link to="/course" className="course-card-image"><CourseCover course={course} /><span className="cover-play">↗</span></Link><div className="course-card-body"><div className="course-card-title"><div><Link to="/course" className="course-title">{course.title}</Link><span className="course-author">by {course.creator}</span></div><div className="course-rating">{course.rating}<Star size={16} fill="currentColor" /></div></div><div className="course-meta"><span><Signal size={17} />{course.level}</span><span><Users size={17} />{course.students} students</span></div><div className="course-card-bottom"><span className="course-price">{course.price}<small>/lifetime</small></span><Link to="/course" className="text-link">View course <ArrowRight size={15} /></Link></div></div></article>
+export function CourseCard({ course }: { course: Course; compact?: boolean }) {
+  return (
+    <article className="course-card">
+      <Link to="/course" className="course-card-image">
+        <div className="course-card-banner-wrapper">
+          <img src="/images/coursebanner.png" alt={course.title} className="course-card-banner-img" />
+          <div className="course-banner-tags">
+            <span>17 Lessons</span>
+            <span>2 hours 16 mins</span>
+            <span>59 Comments</span>
+          </div>
+        </div>
+      </Link>
+      <div className="course-card-body">
+        <div className="course-card-title">
+          <div>
+            <Link to="/course" className="course-title">{course.title}</Link>
+            <span className="course-author">by purepearl studio</span>
+          </div>
+          <div className="course-rating">
+            4.5 <Star size={15} fill="#d1d5db" color="#d1d5db" />
+          </div>
+        </div>
+        <div className="course-meta-row">
+          <span className="level-badge">
+            <Signal size={14} /> Beginner
+          </span>
+          <div className="course-avatar-line">
+            <img src="/images/comm1.png" alt="Student" />
+            <img src="/images/comm2.png" alt="Student" />
+            <img src="/images/comm3.png" alt="Student" />
+            <span className="avatar-green-count">2k+</span>
+          </div>
+        </div>
+        <div className="course-card-bottom">
+          <div className="course-price">$25<span>/lifetime</span></div>
+        </div>
+      </div>
+    </article>
+  )
 }
 
-export function CategoryCard({ category }: { category: { name: string; icon: string; color: string } }) {
-  return <Link to="/search" className="category-card"><span className={`category-icon category-${category.color}`}>{category.icon}</span><strong>{category.name}</strong><span className="category-arrow"><ArrowRight size={16} /></span></Link>
+export function CategoryCard({ category }: { category: { name: string; icon?: string; color?: string } }) {
+  return (
+    <Link to="/search" className="category-card">
+      <span className="category-icon-lime">
+        {categoryIcons[category.name] ?? category.icon}
+      </span>
+      <strong>{category.name}</strong>
+    </Link>
+  )
 }
 
 export function RatingStars({ rating = 5 }: { rating?: number }) {
@@ -79,7 +134,24 @@ export function CourseNav({ active = 'About' }: { active?: string }) {
 }
 
 export function AvatarStack() {
-  return <div className="avatar-stack">{['JD', 'RM', 'AY', 'CW', 'LK', 'TS', 'MK'].map((person, i) => <Avatar key={person} initials={person} tone={i} />)}<span className="avatar-stack-more">2K+</span></div>
+  const avatars = [
+    '/images/comm1.png',
+    '/images/comm2.png',
+    '/images/comm3.png',
+    '/images/comm1.png',
+    '/images/comm2.png',
+    '/images/comm3.png',
+    '/images/comm1.png'
+  ]
+
+  return (
+    <div className="avatar-stack">
+      {avatars.map((src, i) => (
+        <img key={i} src={src} alt="Student avatar" className="avatar-img" />
+      ))}
+      <span className="avatar-stack-more">2K+</span>
+    </div>
+  )
 }
 
 export function ProgressCard() {
