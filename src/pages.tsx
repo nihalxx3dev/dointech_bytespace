@@ -28,8 +28,61 @@ export function HomePage() {
     <section className="section wrap home-categories"><SectionHeading centered title="Discover Your Passion, Build Your Skills" description="At ByteSpace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life."/><div className="category-grid">{categories.map(item => <CategoryCard category={item} key={item.name}/>)}</div><div className="center-action"><Button variant="outline">Explore all categories <ArrowRight size={17}/></Button></div></section>
     <section className="section courses-section"><div className="wrap"><div className="section-row"><SectionHeading eyebrow="LEARN SOMETHING NEW" title="Popular Courses" description="Learn from experienced creators and grow your skills, one course at a time."/><Link className="text-link" to="/search">Browse all courses <ArrowRight size={17}/></Link></div><div className="course-grid">{courses.slice(0,3).map(item => <CourseCard course={item} key={item.title}/>)}</div><div className="course-grid course-grid-extra">{courses.slice(3,6).map(item => <CourseCard course={item} key={item.title}/>)}</div></div></section>
     <section className="creator-promo wrap"><div className="creator-promo-art"><span className="promo-orb"/><div className="promo-note"><Sparkles/><b>Make something<br/>people love.</b></div><div className="promo-tag">Your next chapter starts here <ArrowUpRight size={16}/></div></div><div className="creator-promo-copy"><span className="eyebrow">FOR THE CURIOUS</span><h2>Learn from creators who love what they do.</h2><p>Explore practical, thoughtfully crafted courses from people working at the edge of their fields. Build useful skills at your own pace.</p><div className="promo-checks"><span><Check/>Learn by doing</span><span><Check/>Go at your own pace</span><span><Check/>Keep lifetime access</span></div><Link to="/search"><Button>Explore the library <ArrowRight size={17}/></Button></Link></div></section>
-    <section className="community-section"><div className="wrap community-inner"><div><span className="eyebrow eyebrow-light">CREATE WITH US</span><h2>Turn your knowledge into someone else's next big idea.</h2><p>Share your expertise, build your audience, and create a community around what you love.</p><Link to="/creator"><Button>Become a creator <ArrowRight size={17}/></Button></Link></div><div className="community-stat"><strong>10K<span>+</span></strong><span>learners and creators growing together</span><div className="community-avatars"><Avatar initials="JD"/><Avatar initials="RM" tone={1}/><Avatar initials="AF" tone={3}/><Avatar initials="LY" tone={4}/><i>+</i></div></div></div></section>
-    <section className="section testimonial-section wrap"><div className="section-row"><SectionHeading eyebrow="REAL STORIES" title="Discover What Our Community Is Saying"/><p className="testimonial-intro">At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating.</p></div><div className="testimonial-grid">{[{name:'Sarah M.',role:'Enthusiastic Learner',initials:'SM',body:'“ByteSpace has transformed my approach to learning. The diverse range of courses and the quality of content have exceeded my expectations.”'},{name:'James L.',role:'Lifelong Learner',initials:'JL',body:'“The vibrant community and variety of courses make ByteSpace a go-to platform for continuous skill development.”'},{name:'Alex B.',role:'Inspired Creator',initials:'AB',body:'“The Course Editor is user-friendly, and the support from the community is incredible. It’s fulfilling to see my courses making an impact.”'}].map((item,i)=><article className="testimonial-card" key={item.name}><Avatar initials={item.initials} tone={i} size="large"/><h3>{item.name}</h3><span className="muted">{item.role}</span><RatingStars/><p>{item.body}</p><QuoteMark/></article>)}</div></section>
+    <section className="community-section">
+        <div className="hero-grid" />
+        <div className="wrap community-banner">
+            <h2>Unlock Your Potential as a<br />Creator with ByteSpace</h2>
+            <p>
+            Experience the collaboration of numerous creators and an expanding selection of courses. Register now and become a
+            part of a community comprising over 10,000 local and international creators. Utilize our Course Editor, and showcase your
+            expertise by publishing your finest course on the ByteSpace Course Library.
+            </p>
+            <Link to="/creator">
+            <Button variant="lime">Join as Creator</Button>
+            </Link>
+        </div>
+        </section>
+        <section className="section testimonial-section">
+  <div className="wrap">
+    <div className="section-row">
+      <div className="section-heading">
+        <h2>Discover What Our<br />Community Is Saying</h2>
+      </div>
+      <p className="testimonial-intro">
+        At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
+      </p>
+    </div>
+    <div className="testimonial-grid">
+      {[
+        {
+          name: 'Sarah M.',
+          role: 'Enthusiastic Learner',
+          image: '/images/comm1.png',
+          body: '"ByteSpace has transformed my approach to learning. The diverse range of courses and the quality of content provided by creators have exceeded my expectations. The platform truly fosters a sense of community and lifelong learning."'
+        },
+        {
+          name: 'James L.',
+          role: 'Lifelong Learner',
+          image: '/images/comm2.png',
+          body: '"I\'ve tried several online learning platforms, and ByteSpace stands out for its vibrant community and the variety of courses available. The easy navigation and engaging content make it a go-to platform for continuous skill development."'
+        },
+        {
+          name: 'Alex B.',
+          role: 'Inspired Creator',
+          image: '/images/comm3.png',
+          body: '"As a creator, ByteSpace has been a game-changer for me. The Course Editor is user-friendly, and the support from the community is incredible. It\'s fulfilling to see my courses making a positive impact on learners globally."'
+        }
+      ].map((item) => (
+        <article className="testimonial-card" key={item.name}>
+          <img className="testimonial-avatar" src={item.image} alt={item.name} />
+          <h3>{item.name}</h3>
+          <span className="testimonial-role">{item.role}</span>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
   </PageShell>
 }
 
