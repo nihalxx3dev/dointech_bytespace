@@ -381,15 +381,6 @@
   background: var(--lime);
 }
 
-.hero-stage {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 454px;
-  width: 472px;
-  height: 467px;
-  transform: translateX(-50%);
-}
 
 .hero-person {
   position: absolute;
@@ -399,6 +390,30 @@
   height: 442px;
   transform: translateX(-50%);
   filter: drop-shadow(0 18px 18px #10255335);
+}
+
+.hero-stage {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+  top: auto;
+  width: min(720px, 90vw);
+  height: auto;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.hero-person-img {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(7, 24, 75, 0.25));
 }
 
 .person-head {
@@ -1441,6 +1456,27 @@
 }
 
 /* Forms / auth */
+.auth-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--blue);
+  color: #fff;
+}
+
+.auth-wrapper .auth-pitch h1 {
+  color: #fff;
+}
+
+.auth-wrapper .auth-pitch>p {
+  color: #d8e1ff;
+}
+
+.auth-wrapper .auth-page {
+  padding-top: 130px;
+}
+
 .auth-page {
   min-height: 790px;
   display: grid;
@@ -1470,6 +1506,58 @@
   color: #5c6068;
   font-size: 16px;
   line-height: 1.7;
+}
+
+.auth-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.auth-submit-compact {
+  min-height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 24px;
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.social-login-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.auth-card {
+  color: var(--ink);
+}
+
+.auth-card h2 {
+  color: var(--ink);
+}
+
+.social-btn {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dcdde0;
+  border-radius: 18px;
+  background: #f4f5f7;
+  color: #111;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .15s;
+}
+
+.social-btn:hover {
+  background: #eaebee;
+  border-color: #cbccd0;
+  transform: translateY(-2px);
 }
 
 .auth-art {
