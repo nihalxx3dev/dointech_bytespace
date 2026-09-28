@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight, BadgeCheck, Check, ChevronRight, CirclePlay, Clock3, Filter, Heart, LockKeyhole, Mail, MoreHorizontal, Play, Search, Share2, ShieldCheck, Sparkles, Star, Users, Video, WandSparkles } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Check, ChevronRight, CirclePlay, Clock3, Filter, Heart, LockKeyhole, Mail, MoreHorizontal, Play, Search, Share2, ShieldCheck, Signal, Sparkles, Star, Users, Video, WandSparkles } from 'lucide-react'
 import { categories, courses, modules, reviews } from './data'
 import { Avatar, Breadcrumbs, Button, CategoryCard, CourseCard, CourseCover, CourseNav, CourseStats, FilterSelect, HappyStudentsCard, LessonRow, PageShell, ProgressCard, QuoteMark, RatingStars, ReadMore, SearchBox, SectionHeading } from './components'
 
@@ -83,8 +83,118 @@ export function HomePage() {
       </div>
     </section>
 
-    <section className="creator-promo wrap"><div className="creator-promo-art"><span className="promo-orb"/><div className="promo-note"><Sparkles/><b>Make something<br/>people love.</b></div><div className="promo-tag">Your next chapter starts here <ArrowUpRight size={16}/></div></div><div className="creator-promo-copy"><span className="eyebrow">FOR THE CURIOUS</span><h2>Learn from creators who love what they do.</h2><p>Explore practical, thoughtfully crafted courses from people working at the edge of their fields. Build useful skills at your own pace.</p><div className="promo-checks"><span><Check/>Learn by doing</span><span><Check/>Go at your own pace</span><span><Check/>Keep lifetime access</span></div><Link to="/search"><Button>Explore the library <ArrowRight size={17}/></Button></Link></div></section>
-    
+    <section className="growth-promo-section">
+    <div className="wrap">
+        {/* Row 1: Path to Professional Growth */}
+        <div className="growth-row">
+        <div className="growth-copy">
+            <h2>Your Path to Professional<br />Growth Starts Here!</h2>
+            <p>
+            Explore our curated selection of courses tailored to enhance your capabilities and accelerate your career journey. Whether you are looking to sharpen specific skills, gain industry expertise, or embark on a new career path entirely, we have the resources you need.
+            </p>
+            <div className="growth-metrics">
+            <div>
+                <strong>12K</strong>
+                <span>Students</span>
+            </div>
+            <div>
+                <strong>70+</strong>
+                <span>Courses</span>
+            </div>
+            <div>
+                <strong>16</strong>
+                <span>Creators</span>
+            </div>
+            </div>
+        </div>
+
+        <div className="growth-art">
+            {/* Floating Mini Course Card */}
+            <div className="promo-mini-course-card">
+            <div className="promo-mini-cover">
+                <img src="/images/coursebanner.png" alt="Course" />
+                <div className="promo-mini-tags">
+                <span>17 Lessons</span>
+                <span>2 hours 16 mins</span>
+                </div>
+            </div>
+            <div className="promo-mini-info">
+                <b>Learn Figma from Basic</b>
+                <small>by purepearl studio</small>
+                <div className="promo-mini-meta">
+                <span className="level-badge"><Signal size={12} /> Beginner</span>
+                <b>$25</b>
+                </div>
+            </div>
+            </div>
+
+            {/* Boy Photo */}
+            <img className="growth-person-img" src="/images/hero_main1.png" alt="Learner" />
+
+            {/* Floating Lime Squiggle */}
+            <img className="promo-lime-squiggle top-squiggle" src="/images/lime.png" alt="" />
+
+            {/* Floating Progress Card */}
+            <div className="promo-floating-progress glass-card">
+            <span>Learning Progress</span>
+            <strong>55%</strong>
+            <div className="progress-track"><i /></div>
+            </div>
+        </div>
+        </div>
+
+        {/* Row 2: Create & Manage Courses Easily */}
+        <div className="growth-row growth-row-reverse">
+        <div className="growth-copy">
+            <h2>Create & Manage<br />Courses Easily.</h2>
+            <p>
+            ByteSpace supports individuals or entities in the creation, publication, and administration of educational courses.
+            </p>
+            <div className="growth-checks">
+            <span><Check size={14} /> Share Your Expertise</span>
+            <span><Check size={14} /> Monetize Your Passion</span>
+            <span><Check size={14} /> Flexibility and Autonomy</span>
+            <span><Check size={14} /> Build a Community</span>
+            </div>
+        </div>
+
+        <div className="growth-art">
+            {/* Floating Blue Stats */}
+            <div className="promo-stat-pill">
+            <small>Total Revenue</small>
+            <span>July 1-30</span>
+            <strong>$120.29</strong>
+            </div>
+            <div className="promo-stat-pill promo-stat-pill-2">
+            <small>Year to Date</small>
+            <span>2023</span>
+            <strong>$1,200.38</strong>
+            <i>+12%</i>
+            </div>
+
+            {/* Girl Photo */}
+            <img className="growth-person-img" src="/images/hero_main2.png" alt="Creator" />
+
+            {/* Floating Lime Squiggle */}
+            <img className="promo-lime-squiggle bottom-squiggle" src="/images/lime.png" alt="" />
+
+            {/* Floating Happy Students */}
+            <div className="promo-floating-happy glass-card">
+            <div className="happy-rating">
+                <span>Happy Students</span>
+                <small>4.5 (240) ★</small>
+            </div>
+            <div className="avatar-stack">
+                {['/images/comm1.png', '/images/comm2.png', '/images/comm3.png', '/images/comm1.png', '/images/comm2.png'].map((src, idx) => (
+                <img key={idx} src={src} alt="avatar" className="avatar-img" />
+                ))}
+                <span className="avatar-stack-more">2K+</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
     <section className="community-section">
       <div className="hero-grid" />
       <div className="wrap community-banner">
